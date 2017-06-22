@@ -152,17 +152,19 @@ function handleRender(req, res) {
       renderAfterApis(newStocks, res);
     }).catch(function (err) {
       console.log('Failed to fetch all data', err);
-      renderAfterApis(stocks, res);
+      renderAfterApis(stocks, res, true);
     });
   });
 }
 
 function renderAfterApis(stocks, res) {
+  var isFetchFail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
   // Make store with initial state
   var initialState = {
     stock: {
       isFetching: false,
-      isFetchFail: false,
+      isFetchFail: isFetchFail,
       stocks: stocks || null,
       search: ''
     }

@@ -59,13 +59,9 @@ var Chart = (_dec = (0, _reactRedux.connect)(function (state) {
 	}
 
 	_createClass(Chart, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
-			this.drawn = true;
-		}
-	}, {
 		key: 'componentDidUpdate',
 		value: function componentDidUpdate() {
+			this.drawn = false;
 			this.drawChart();
 		}
 	}, {
@@ -126,16 +122,17 @@ var Chart = (_dec = (0, _reactRedux.connect)(function (state) {
 		key: 'render',
 		value: function render() {
 			if (this.stockChart) this.stockChart.destroy();
+			console.log(this.drawn, this.props.stock.isFetchFail);
 			return _react2.default.createElement(
 				'section',
 				{ id: 'chart', ref: 'chart' },
 				_react2.default.createElement('canvas', { id: 'lineChart', ref: 'lineChart' }),
-				this.drawn ? [] : _react2.default.createElement(
+				!this.drawn || this.props.stock.isFetchFail ? _react2.default.createElement(
 					'button',
 					{ id: 'fetch-btn', onClick: this.fetchData.bind(this),
 						disabled: this.props.stock.isFetching },
 					'Fetch data'
-				)
+				) : []
 			);
 		}
 	}]);

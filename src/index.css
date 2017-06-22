@@ -24,7 +24,8 @@
 }
 #input {
 	padding: 0px 10px;
-	margin: 5px;
+	margin: 5px 5px 5px 15px;
+	font-size: 1.5em;
 }
 #symbol-container {
 	display: flex;

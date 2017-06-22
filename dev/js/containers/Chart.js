@@ -19,11 +19,8 @@ class Chart extends Component {
 		var drawn;
 	}
 
-	componentWillMount() {
-		this.drawn = true;
-	}
-
 	componentDidUpdate() {
+		this.drawn = false;
 		this.drawChart();
 	}
 	componentDidMount() {
@@ -75,11 +72,12 @@ class Chart extends Component {
 	render() {
 		if(this.stockChart)
 			this.stockChart.destroy();
+		console.log(this.drawn, this.props.stock.isFetchFail);
 		return (
 	    <section id="chart" ref="chart">
 	    	<canvas id="lineChart" ref="lineChart"></canvas>
-	    	{this.drawn?[]:<button id="fetch-btn" onClick={this.fetchData.bind(this)}
-	    		disabled={this.props.stock.isFetching}>Fetch data</button>}
+	    	{!this.drawn||this.props.stock.isFetchFail?<button id="fetch-btn" onClick={this.fetchData.bind(this)}
+	    		disabled={this.props.stock.isFetching}>Fetch data</button>:[]}
 	    </section>
     )
   }
