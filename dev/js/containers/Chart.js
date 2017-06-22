@@ -19,6 +19,10 @@ class Chart extends Component {
 		var drawn;
 	}
 
+	componentWillMount() {
+		this.drawn = true;
+	}
+
 	componentDidUpdate() {
 		this.drawChart();
 	}
