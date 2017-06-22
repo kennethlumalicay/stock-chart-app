@@ -2,10 +2,11 @@
   "name": "stock-chart-app",
   "version": "1.0.0",
   "description": "",
-  "main": "dev.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dev.js",
-    "build": "webpack && node dev.js"
+    "build": "webpack && node dev.js",
+    "prod": "webpack && babel dev -d dist"
   },
   "author": "Kenneth Malicay",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
     "cross-env": "^5.0.1",
     "webpack": "^3.0.0",
     "webpack-dev-middleware": "^1.10.2",
@@ -27,7 +29,6 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
-    "babel-register": "^6.24.1",
     "body-parser": "^1.17.2",
     "chart.js": "^2.6.0",
     "connect-mongo": "^1.3.2",
