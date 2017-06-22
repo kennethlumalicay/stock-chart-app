@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+.fail {
+	border: 1px inline red;
+}
+#app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Slabo 27px', serif;
+	font-size: 1em;
+}
+#chart {
+	max-width: 700px;
+	width: 95%;
+	text-align: center;
+	margin: 10px 0px;
+}
+#list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+#input {
+	padding: 0px 10px;
+	margin: 5px;
+}
+#symbol-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.symbols {
+	padding: 0px 10px;
+	margin: 5px;
+	border: 1px solid rgba(0,0,0,0.5);
+	border-radius: 10px;
+	transform: scale(1,1);
+	transition: all 0.25s ease-in-out;
+}
+.symbols:hover {
+	transform: scale(0.8,0.8);
+}
+.symbols > * {
+	padding: 1px;
+	margin: 1px;
+}
+#footer > p {
+	font-size: 1.2em;
+}
+#footer > p > a {
+	color: rgba(255,132,61,1);
+	text-decoration: none;
+}
+#footer > p > a:visited {
+	color: rgba(255,158,102,0.9);
+}
