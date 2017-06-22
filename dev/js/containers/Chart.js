@@ -33,7 +33,7 @@ class Chart extends Component {
 						'rgb(155,0,155)','rgb(155,155,0)','rgb(0,155,155)','rgb(100,0,0)','rgb(100,0,100)',
 						'rgb(100,100,0)','rgb(0,100,100)','rgb(50,0,0)','rgb(50,0,50)','rgb(50,50,0)'];
 				var temp = [...this.props.stock.stocks];
-				var labels = temp.sort((a,b) => a.stock.data.length + b.stock.data.length)[0]
+				var labels = temp.sort((a,b) => a.stock.data.length + (b?b.stock.data.length:0))[0]
 						.stock.data.map(e=>e[0]);
 				var datasets = temp.map((e,i)=> ({
 					label: e.stock.id,
@@ -73,8 +73,8 @@ class Chart extends Component {
 			this.stockChart.destroy();
 		return (
 	    <section id="chart" ref="chart">
-	    	{this.drawn?<canvas id="lineChart" ref="lineChart"></canvas>
-	    	:<button id="fetch-btn" onClick={this.fetchData.bind(this)}
+	    	<canvas id="lineChart" ref="lineChart"></canvas>
+	    	{this.drawn?[]:<button id="fetch-btn" onClick={this.fetchData.bind(this)}
 	    		disabled={this.props.stock.isFetching}>Fetch data</button>}
 	    </section>
     )
